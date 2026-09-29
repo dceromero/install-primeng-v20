@@ -1,0 +1,37 @@
+Estas son las configuraciones para utilizar primeng v20.
+1)Copiar todas las carpetas de prime y pegarlas dentro de node_module.
+
+2) en el archivo package.json de debe de colocar dentro de dependecies
+las siguientes dependencias:
+"@primeuix/themes": "^1.2.5",
+"primeicons": "^7.0.0",
+"primeng": "^20.4.0", 
+
+3) en el archivo angular.json se debe colocar dentro de los style la siguiente linea:
+"node_modules/primeicons/primeicons.css", -> esto es para que reconozca los iconos de primeng
+
+4)en el archivo de app.config debe de tener lo siguiente
+
+Importaciones: 
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
+-------------------------------------------------------
+dentro de los providers
+provideAnimationsAsync(),
+providePrimeNG({
+      theme: {
+        preset: Aura
+      }
+}),
+Ejemplo:
+ providers: [
+        provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
+    ]
+
+
